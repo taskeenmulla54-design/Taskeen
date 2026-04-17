@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 <title>Payment</title>
 <link rel="stylesheet" href="style.css">
@@ -13,12 +14,21 @@
 
 <h3>Select Payment Method</h3>
 
-<button>UPI</button>
-<button>Debit Card</button>
-<button>Credit Card</button>
-<button>Cash On Delivery</button>
+<button onclick="paymentSuccess()">UPI</button>
+<button onclick="paymentSuccess()">Debit Card</button>
+<button onclick="paymentSuccess()">Credit Card</button>
+<button onclick="paymentSuccess()">Cash On Delivery</button>
 
 </div>
 
+<script>
+
+function paymentSuccess(){
+alert("Payment Successful 🎉");
+}
+
+</script>
+
 </body>
+
 </html>
