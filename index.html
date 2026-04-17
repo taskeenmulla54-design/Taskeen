@@ -1,11 +1,13 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ShopMe</title>
 <link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
 </head>
 
 <body>
@@ -17,20 +19,54 @@
 <nav>
 <a href="index.html">Home</a>
 <a href="categories.html">Categories</a>
-<a href="payment.html">Payment</a>
-<a href="contact.html">Contact</a>
+<a href="cart.html">Cart 🛒</a>
+<a href="wishlist.html">Wishlist ❤️</a>
 </nav>
 
 </header>
 
 <section class="hero">
 
-<h1>Welcome to ShopMe</h1>
-<p>Elegant Shopping Experience</p>
+<h1>Discover Your Style</h1>
+<p>Premium Fashion Collection</p>
 
 <a href="categories.html">
 <button>Shop Now</button>
 </a>
+
+</section>
+
+<section class="featured">
+
+<h2>Trending Products</h2>
+
+<div class="products">
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1520975916090-3105956dac38">
+<h3>Designer Dress</h3>
+<p>₹1999</p>
+<button onclick="addToCart('Designer Dress',1999)">Add to Cart</button>
+<button onclick="addToWishlist('Designer Dress')">❤️</button>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff">
+<h3>Sneakers</h3>
+<p>₹1799</p>
+<button onclick="addToCart('Sneakers',1799)">Add to Cart</button>
+<button onclick="addToWishlist('Sneakers')">❤️</button>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1591561954557-26941169b49e">
+<h3>Luxury Bag</h3>
+<p>₹2499</p>
+<button onclick="addToCart('Luxury Bag',2499)">Add to Cart</button>
+<button onclick="addToWishlist('Luxury Bag')">❤️</button>
+</div>
+
+</div>
 
 </section>
 
