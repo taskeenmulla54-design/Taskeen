@@ -3,201 +3,76 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Taskeen Mulla Store</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
-
-body{
-background:#f6f7fb;
-}
-
-header{
-background:#111;
-color:white;
-padding:20px;
-text-align:center;
-}
-
-nav{
-display:flex;
-justify-content:center;
-gap:30px;
-background:#fff;
-padding:15px;
-box-shadow:0 2px 8px rgba(0,0,0,0.05);
-}
-
-nav a{
-text-decoration:none;
-color:#333;
-font-weight:500;
-}
-
-.hero{
-text-align:center;
-padding:40px;
-background:linear-gradient(to right,#111,#333);
-color:white;
-}
-
-.container{
-padding:40px;
-}
-
-.products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-gap:25px;
-}
-
-.product{
-background:white;
-padding:20px;
-border-radius:12px;
-box-shadow:0 5px 20px rgba(0,0,0,0.05);
-text-align:center;
-transition:.3s;
-}
-
-.product:hover{
-transform:translateY(-5px);
-}
-
-.product img{
-width:100%;
-height:220px;
-object-fit:cover;
-border-radius:10px;
-}
-
-button{
-background:#111;
-color:white;
-padding:10px 18px;
-border:none;
-border-radius:6px;
-margin-top:10px;
-cursor:pointer;
-}
-
-.cart{
-position:fixed;
-right:20px;
-bottom:20px;
-background:#111;
-color:white;
-padding:15px 20px;
-border-radius:50px;
-cursor:pointer;
-}
-
-footer{
-background:#111;
-color:white;
-text-align:center;
-padding:30px;
-margin-top:40px;
-}
-
-</style>
-
+<title>ShopMe - Taskeen</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header>
-<h1>Taskeen Mulla Store</h1>
-<p>Shop With Style</p>
-</header>
+<div class="logo">🛍️ ShopMe</div>
 
 <nav>
 <a href="#">Home</a>
-<a href="#">Shop</a>
-<a href="#">Contact</a>
+<a href="#products">Shop</a>
+<a href="#contact">Contact</a>
 </nav>
 
+<div class="cart">
+🛒 Cart <span id="cart-count">0</span>
+❤️ Wishlist <span id="wish-count">0</span>
+</div>
+
+</header>
+
 <section class="hero">
-<h2>Welcome To My Store</h2>
-<p>Best Products | Best Price | Fast Delivery</p>
+<h1>Welcome to ShopMe</h1>
+<p>Best Deals Just For You</p>
 </section>
 
-<div class="container">
-
-<h2>Featured Products</h2>
-
-<div class="products" id="products">
+<section id="products" class="products">
 
 <div class="product">
-<img src="https://via.placeholder.com/300">
-<h3>Women's Dress</h3>
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff">
+<h3>Shoes</h3>
+<p>₹1499</p>
+<button onclick="addToCart()">Add to Cart</button>
+<button onclick="addToWishlist()">Wishlist</button>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f">
+<h3>Headphones</h3>
 <p>₹999</p>
-<button onclick="addToCart('Women Dress',999)">Add to Cart</button>
+<button onclick="addToCart()">Add to Cart</button>
+<button onclick="addToWishlist()">Wishlist</button>
 </div>
 
 <div class="product">
-<img src="https://via.placeholder.com/300">
-<h3>Handbag</h3>
-<p>₹799</p>
-<button onclick="addToCart('Handbag',799)">Add to Cart</button>
+<img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796">
+<h3>Watch</h3>
+<p>₹1999</p>
+<button onclick="addToCart()">Add to Cart</button>
+<button onclick="addToWishlist()">Wishlist</button>
 </div>
 
-<div class="product">
-<img src="https://via.placeholder.com/300">
-<h3>Perfume</h3>
-<p>₹599</p>
-<button onclick="addToCart('Perfume',599)">Add to Cart</button>
-</div>
+</section>
 
-<div class="product">
-<img src="https://via.placeholder.com/300">
-<h3>Footwear</h3>
-<p>₹899</p>
-<button onclick="addToCart('Footwear',899)">Add to Cart</button>
-</div>
-
-</div>
-
-</div>
-
-<div class="cart" onclick="showCart()">
-🛒 Cart (<span id="count">0</span>)
-</div>
+<section id="contact" class="contact">
+<h2>Contact Us</h2>
+<p>Name: Taskeen</p>
+<p>Email: Taskeenmulla54@gmail.com</p>
+<p>Phone: 9876564321</p>
+</section>
 
 <footer>
-<h3>Taskeen Mulla Store</h3>
-<p>Email: taskeenmulla54@gmail.com</p>
-<p>© 2026 All Rights Reserved</p>
+<p>© 2026 ShopMe | Created by Taskeen</p>
 </footer>
 
-<script>
-let cart=[];
-
-function addToCart(name,price){
-cart.push({name,price});
-document.getElementById('count').innerText=cart.length;
-}
-
-function showCart(){
-let total=0;
-let message='Your Cart:\n';
-
-cart.forEach(item=>{
-message+=item.name+' - ₹'+item.price+'\n';
-total+=item.price;
-});
-
-message+='\nTotal: ₹'+total;
-alert(message);
-}
-
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
+
+
+
