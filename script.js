@@ -1,62 +1,34 @@
 
+
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
 
-function addToCart(name,price){
-
-cart.push({name,price})
-
-localStorage.setItem("cart",JSON.stringify(cart))
-
-alert("Added to cart")
-
+/* ADD TO CART */
+function addToCart(name, price) {
+cart.push({ name, price });
+localStorage.setItem("cart", JSON.stringify(cart));
+alert(name + " added to cart 🛒");
 }
 
-function addToWishlist(name){
-
-wishlist.push(name)
-
-localStorage.setItem("wishlist",JSON.stringify(wishlist))
-
-alert("Added to wishlist")
-
+/* ADD TO WISHLIST */
+function addToWishlist(name) {
+wishlist.push(name);
+localStorage.setItem("wishlist", JSON.stringify(wishlist));
+alert(name + " added to wishlist ❤️");
 }
 
-function displayCart(){
+/* SEARCH FUNCTION */
+function searchProduct() {
+let input = document.getElementById("searchInput").value.toLowerCase();
+let products = document.getElementsByClassName("product");
 
-let cartItems = document.getElementById("cart-items")
+for (let i = 0; i < products.length; i++) {
+let title = products[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
 
-if(!cartItems) return;
-
-cartItems.innerHTML = ""
-
-cart.forEach(item=>{
-cartItems.innerHTML += `
-<p>${item.name} - ₹${item.price}</p>
-`
-})
-
+if (title.includes(input)) {
+products[i].style.display = "block";
+} else {
+products[i].style.display = "none";
 }
-
-function displayWishlist(){
-
-let wishlistItems = document.getElementById("wishlist-items")
-
-if(!wishlistItems) return;
-
-wishlistItems.innerHTML = ""
-
-wishlist.forEach(item=>{
-wishlistItems.innerHTML += `
-<p>${item}</p>
-`
-})
-
 }
-
-function goToPayment(){
-window.location.href="payment.html"
 }
-
-displayCart()
-displayWishlist()
